@@ -1,0 +1,11 @@
+GENERATIVE AI/LLM USED 
+LLM used: OpenAI ChatGPT
+Model/version used: GPT-5.1 mini 
+Access method: ChatGPT web (free tier)
+Date & time accessed to generate the SRS: 2025-12-13 15:30 UTC (approx.) 
+Note: ChatGPT doesn’t provide per-message timestamps, and I can’t view the first time the message was sent in the Microsoft edge’s search history, as it automatically updates the date accessed when I accessed the chat again, I would have to give an accurate approximation of the most likely dates and times based on the last time I used the LLM to guide me with my SRS. 
+
+Prompts used
+1)	to generate the srs: “Can you generate the starting sections of a report with the title and contents and only after that generate the functional, non-functional and additional functionalities. Ensure that these follow the standards of the example srs (the example with the title highlighted in green, not yellow) and only follow the contents of the srs that is outlined in the assignment 2 brief. Leave the rest of the sections like algorithm design alone.”
+2)	To make the srs clear, structured and numbered: “Can you make the functional, non-functional and additional functionalities written as numbered points to make it clear and structured of each key point”
+3)	to help me structure the LLM subsection: “how should I structure the LLM subsection in the srs section where you state the LLM used, model version, date your accessed it and the prompts you used AND how do I say the description of the improvements i made to the generated LLM srs in a structured and what way because I’m confused in how should I present it”
