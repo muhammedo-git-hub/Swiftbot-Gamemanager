@@ -1,0 +1,33 @@
+---
+config:
+  theme: redux
+  layout: fixed
+---
+flowchart TB
+    Start(["Start"]) --> Select["choose random square in board"]
+    Select --> Display1@{ label: "DISPLAY: 'SwiftBotName chose<br>square [row, col]'" }
+    Display1 --> Move["SwiftBotName move to [row, col]"]
+    Move --> InitCounter["i = 1"]
+    InitCounter --> BlinkLoop{"i ≤ 3?"}
+    BlinkLoop -- Yes --> Blink["SwiftBot blinks Green"]
+    Blink --> Increment1["i = i + 1"]
+    Increment1 --> BlinkLoop
+    BlinkLoop -- No --> Return["swiftbot returns to starting position"]
+    Return --> Update["update SwiftbotMove"]
+    Update --> Display2@{ label: "DISPLAY: 'SwiftBotName -<br>swiftBotPiece moved to [row, col]'" }
+    Display2 --> End(["End"])
+
+    Display1@{ shape: lean-r}
+    Display2@{ shape: lean-r}
+    style Start fill:#lightblue
+    style Select fill:#lightyellow
+    style Display1 fill:#lightcoral
+    style Move fill:#lightyellow
+    style InitCounter fill:#lightyellow
+    style BlinkLoop fill:#lightgreen
+    style Blink fill:#lightyellow
+    style Increment1 fill:#lightyellow
+    style Return fill:#lightyellow
+    style Update fill:#lightyellow
+    style Display2 fill:#lightcoral
+    style End fill:#lightblue

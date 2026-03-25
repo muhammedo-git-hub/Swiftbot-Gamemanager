@@ -1,0 +1,54 @@
+---
+config:
+  theme: redux
+  layout: fixed
+---
+flowchart TB
+    Start(["Start"]) --> Sub1["roundNum = 1 
+ASCIIBoard = 3x3 
+NumRange = 1-3 inclusive
+ButtonA = Red 
+ButtonB = Green 
+ButtonX = Blue 
+ButtonY = Yellow 
+UserDiceRoll = 0 
+SwiftbotDiceRoll = 0 
+UserScore = 0 
+SwiftbotScore = 0"]
+    GameOver1{"is UserDiceRoll > SwiftbotDiceRoll?"} -- Yes --> Sub3@{ label: "User's Turn" }
+    Sub3 --> Sub4a["Check Win/Draw<br>Conditions"]
+    Sub6["Maintain Log & Update Scoreboard"] --> Sub7["Play Again/Quit<br>Options"]
+    Sub7 --> PlayAgain{"Play Again?"}
+    PlayAgain -- No --> End(["End"])
+    n1["welcome screen & registration"] --> Sub2["Generate & Roll Dice"]
+    GameOver1 -- No --> n2@{ label: "SwiftBot's Turn" }
+    PlayAgain -- yes --> Start
+    Sub1 --> n1
+    Sub2 --> GameOver1
+    n2 --> Sub4a
+    Sub4a --> GameOver2["finish round"]
+    GameOver2 --> n3["RoundNum = RoundNum + 1"]
+    n3 --> Sub6
+
+    Sub1@{ shape: proc}
+    Sub3@{ shape: subproc}
+    Sub4a@{ shape: subproc}
+    Sub6@{ shape: subproc}
+    Sub7@{ shape: subproc}
+    n1@{ shape: subproc}
+    Sub2@{ shape: subproc}
+    n2@{ shape: subproc}
+    GameOver2@{ shape: proc}
+    n3@{ shape: proc}
+    style Start fill:#lightblue
+    style Sub1 fill:#lavender
+    style GameOver1 fill:#lightgreen
+    style Sub3 fill:#lavender
+    style Sub4a fill:#lavender
+    style Sub6 fill:#lavender
+    style Sub7 fill:#lavender
+    style PlayAgain fill:#lightgreen
+    style End fill:#lightblue
+    style Sub2 fill:#lavender
+    style n2 fill:#lavender
+    style GameOver2 fill:#lightgreen
