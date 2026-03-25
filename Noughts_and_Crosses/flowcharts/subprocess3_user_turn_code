@@ -1,0 +1,41 @@
+---
+config:
+  theme: redux
+  layout: fixed
+---
+flowchart TB
+    Start(["Start"]) --> DisplayBoard[/"DISPLAY: ASCII board<br>with row/column labels"/]
+    DisplayBoard --> PromptMove@{ label: "DISPLAY: 'UserName, enter<br>your move in integers in the form [row, col]:'" }
+    PromptMove --> Input[/"UserMove = 
+INPUT: [row, col]"/]
+    Input --> ValidateFormat{"Is the UserMove numeric?"}
+    ValidateFormat -- No --> Error1@{ label: "DISPLAY: 'Invalid format. please enter move as an integer in the range 1-3'<br>" }
+    Error1 --> PromptMove
+    CheckEmpty{"Is SquareEmpty = True?<br>"} -- No --> Error2["UserPiece = place user piece on square & update UserMove"]
+    CheckEmpty -- Yes --> UpdateBoard@{ label: "DISPLAY: 'square taken. please choose another square'" }
+    Error2 --> ShowBoard[/"DISPLAY: Updated ASCII board"/]
+    ShowBoard --> ShowMove@{ label: "DISPLAY: 'UserName - UserPiece<br>moved to square [row, col]'" }
+    ValidateFormat -- Yes --> n1["is UserMove between 1-3 inclusive?"]
+    n1 -- Yes --> CheckEmpty
+    n1 -- no --> Error1
+    ShowMove --> End(["End"])
+    UpdateBoard --> PromptMove
+
+    PromptMove@{ shape: lean-r}
+    Error1@{ shape: lean-r}
+    Error2@{ shape: proc}
+    UpdateBoard@{ shape: lean-r}
+    ShowMove@{ shape: lean-r}
+    n1@{ shape: diam}
+    style Start fill:#lightblue
+    style DisplayBoard fill:#lightcoral
+    style PromptMove fill:#lightcoral
+    style Input fill:#lightcoral
+    style ValidateFormat fill:#lightgreen
+    style Error1 fill:#lightcoral
+    style CheckEmpty fill:#lightgreen
+    style Error2 fill:#lightcoral
+    style UpdateBoard fill:#lightyellow
+    style ShowBoard fill:#lightcoral
+    style ShowMove fill:#lightcoral
+    style End fill:#lightblue

@@ -1,0 +1,34 @@
+---
+config:
+  theme: redux
+  layout: fixed
+---
+flowchart TB
+    Start(["Start"]) --> Display1[/"DISPLAY: Welcome message and game rules"/]
+    Display1 --> Display2@{ label: "DISPLAY 'Press Button A<br>to begin registration'" }
+    Display2 --> ButtonCheck{"is ButtonA = True?"}
+    ButtonCheck -- No --> Display2
+    ButtonCheck -- Yes --> Prompt@{ label: "DISPLAY 'Enter your<br>username as a text only'" }
+    Prompt --> Input[/"UserName = INPUT"/]
+    Input --> Validate{"Is userName<br>a string?"}
+    Validate -- No --> Error@{ label: "DISPLAY: 'Invalid input. the input should be in a string format only. please try again'<br>" }
+    Error --> Prompt
+    Validate -- Yes --> Generate["SwiftBotName =<br>generate random name"]
+    Generate --> DisplayNames@{ label: "Display: 'Player: UserName<br>SwiftBot: SwiftBotName'" }
+    DisplayNames --> End(["End"])
+
+    Display2@{ shape: lean-r}
+    Prompt@{ shape: lean-r}
+    Error@{ shape: lean-r}
+    DisplayNames@{ shape: lean-r}
+    style Start fill:#lightblue
+    style Display1 fill:#lightcoral
+    style Display2 fill:#lightcoral
+    style ButtonCheck fill:#lightgreen
+    style Prompt fill:#lightcoral
+    style Input fill:#lightcoral
+    style Validate fill:#lightgreen
+    style Error fill:#lightcoral
+    style Generate fill:#lightyellow
+    style DisplayNames fill:#lightcoral
+    style End fill:#lightblue
