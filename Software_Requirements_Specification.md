@@ -14,7 +14,7 @@ by the ‘&’ character.
 characters 0-9 and A-F (case insensitive).
 9. the system shall reject any Hexadecimal values that do not meet the criteria of validity.
 10. The system shall ignore any invalid hexadecimal values.
-711. The system shall notify the user of any hexadecimal values that were ignored due to invalid
+11. The system shall notify the user of any hexadecimal values that were ignored due to invalid
 formatting.
 12. The system shall convert each valid hexadecimal value into its decimal equivalent without
 using java built in conversion methods.
