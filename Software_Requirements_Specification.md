@@ -1,5 +1,5 @@
-#Software Requirement Specification  
-##Functional Requirements
+# Software Requirement Specification  
+## Functional Requirements
 1.The system shall prompt the user to scan a QR code to provide Hexadecimal values to the
 system.
 2. Each Hexadecimal character shall either be 1 or 2 digits in length.
@@ -65,7 +65,7 @@ ascending order
 43. The system shall write the sorted hexadecimal values to a text file upon program
 termination.
 44. The system shall display the file location of the log file to the user before exiting.
-##Non – Functional Requirements:
+## Non – Functional Requirements:
 45. The system shall provide clear instructions and messages to guide the user through the
 program.
 46. The system shall display informative messages when invalid input is detected.
