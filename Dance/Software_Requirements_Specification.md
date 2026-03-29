@@ -1,0 +1,77 @@
+# Software Requirement Specification  
+## Functional Requirements
+1.The system shall prompt the user to scan a QR code to provide Hexadecimal values to the
+system.
+2. Each Hexadecimal character shall either be 1 or 2 digits in length.
+3. Valid Hexadecimal characters are: 0, 1, 2, 3, 4,5, 6, 7, 8, 9, A, B, C, D, E, F.
+4. Hexadecimal letters (A, B, C, D, E, F) shall be case insensitive meaning both upper and
+lowercases shall be accepted.
+5. The system shall allow a maximum of five hexadecimal values per QR code.
+6. The system shall accept one or more Hexadecimal values in a single QR code.
+7. When multiple Hexadecimal values are provided in a single QR code, they shall be separated
+by the ‘&’ character.
+8. The system shall validate each Hexadecimal character consists of 1 or 2 digits using only
+characters 0-9 and A-F (case insensitive).
+9. the system shall reject any Hexadecimal values that do not meet the criteria of validity.
+10. The system shall ignore any invalid hexadecimal values.
+11. The system shall notify the user of any hexadecimal values that were ignored due to invalid
+formatting.
+12. The system shall convert each valid hexadecimal value into its decimal equivalent without
+using java built in conversion methods.
+13. The system shall convert every valid hexadecimal value into its binary equivalent without
+using javas built-in conversion methods.
+14. The system shall convert each Hexadecimal value into its octal equivalent without using
+Java’s built-in conversion methods.
+15. The system shall calculate the Wheel speed of the Swiftbot, using the equivalent values of
+octal to Hexadecimal value.
+16. If the octal value is < 50, then the system shall set the speed to octal value +50.
+17. if the octal Value is >=50, then the system shall set speed to the given value.
+18. If the system detects the calculation exceeds the Swiftbot’s max wheel spin, the system
+shall set the speed to the maximum wheel spin possible.
+19. The system shall calculate the RED LED colour as the decimal equivalent of the
+Hexadecimal value.
+20. The system shall calculate the GREEN LED colour as the remainder of the decimal when
+divided by 80 then multiplied by 3.
+21. The system shall calculate the BLUE LED colour as the greater value between the RED and
+the GREEN components
+22. The system shall determine the sequence of movements of the Swiftbot, which are
+determined by the binary equivalent.
+23. The system shall read the binary number from RIGHT to LEFT.
+24. The Swiftbot shall move forward if the binary digit is currently at 1
+25. The Swiftbot shall spin if the binary digit is currently at 0
+26. If the hexadecimal value is 1 digit in length, each forward movement shall last 1 second.
+27. If the hexadecimal value is 2 digits in length, each forward movement shall last 0.5 seconds.
+28. The system shall execute all movements in the order determined by the binary
+representation from right to left.
+29. When multiple Hexadecimal values are given, the system shall execute their dance routines
+in the order they appear in the QR code.
+830. Before the Swiftbot begins moving, the system shall display the Hexadecimal value.
+31. Before the Swiftbot begins moving, the system shall display the Octal equivalent.
+32. Before the Swiftbot begins moving, the system shall display the Decimal equivalent.
+33. Before the Swiftbot begins moving, the system shall display the binary equivalent.
+34. Before the Swiftbot begins to move, the system shall display the calculated wheel speed.
+35. Before the Swiftbot begins to move, the system shall display the RGB (RED, GREEN,
+BLUE) LED colour values.
+36. After completing all movements in the Dance routine, the system shall turn off the Swiftbots
+under lights.
+37. After the under lights turn off, the system shall prompt the suer to either scan another QR
+code or terminate the program.
+38. To scan another QR code, the user shall press ‘Y’ button on the Swiftbot.
+39. When the ‘Y’ button is pressed the system shall prompt the user to scan another QR Code.
+40. To terminate the program, the user shall press button ‘X’ on the Swiftbot.
+41. The system shall store all valid hexadecimal values entered during execution.
+42. The system shall sort the stored hexadecimal values when the user has entered so far in
+ascending order
+43. The system shall write the sorted hexadecimal values to a text file upon program
+termination.
+44. The system shall display the file location of the log file to the user before exiting.
+## Non – Functional Requirements:
+45. The system shall provide clear instructions and messages to guide the user through the
+program.
+46. The system shall display informative messages when invalid input is detected.
+47. The system shall continue execution when invalid hexadecimal values are provided, rather
+than terminating unexpectedly.
+48. The system shall ensure that all valid user inputs are processed correctly.
+949. The system shall complete Hexadecimal validation and conversion for each value within 100
+milliseconds
+
