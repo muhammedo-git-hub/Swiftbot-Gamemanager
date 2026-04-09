@@ -7,9 +7,9 @@ import Dance.DanceProgram;
 import DrawShape.MainProgram;
 import MasterMind.Mastermind;
 import ZigZag.ZigZagProgram;
+import NoughtsAndCrosses.Noughts_and_Crosses;
 
 // TODO: Replace these placeholder imports when confirmed/fixed
-// import NoughtsAndCrosses.YourMainClassHere;
 // import SearchForLight.YourMainClassHere;
 // import Trafficlights.YourMainClassHere;
 
@@ -39,9 +39,7 @@ public class MainMenu {
 
                     case 3:
                         System.out.println("\nLaunching Noughts and Crosses...\n");
-                        // TODO: Replace with real main class once confirmed
-                        // YourMainClassHere.main(null);
-                        System.out.println("Noughts and Crosses is not connected yet.");
+                        Noughts_and_Crosses.main(null);                     
                         break;
 
                     case 4:
