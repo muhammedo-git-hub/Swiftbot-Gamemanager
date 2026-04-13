@@ -1,17 +1,7 @@
 package MainMenu;
 
+import java.lang.reflect.Method;
 import java.util.Scanner;
-
-// Confirmed imports
-import Dance.DanceProgram;
-import DrawShape.MainProgram;
-import MasterMind.Mastermind;
-import ZigZag.ZigZagProgram;
-import NoughtsAndCrosses.Noughts_and_Crosses;
-
-// TODO: Replace these placeholder imports when confirmed/fixed
-// import SearchForLight.YourMainClassHere;
-// import Trafficlights.YourMainClassHere;
 
 public class MainMenu {
 
@@ -23,65 +13,54 @@ public class MainMenu {
             displayMenu();
             int choice = getChoice(scanner);
 
-            try {
-                switch (choice) {
-                    case 1:
-                        System.out.println("\nLaunching Dance...\n");
-                        DanceProgram.main(null);
-                        break;
-
-                    case 2:
-                        System.out.println("\nLaunching Search for Light...\n");
-                        // TODO: Replace with real main class once confirmed
-                        // YourMainClassHere.main(null);
-                        System.out.println("Search for Light is not connected yet.");
-                        break;
-
-                    case 3:
-                        System.out.println("\nLaunching Noughts and Crosses...\n");
-                        Noughts_and_Crosses.main(null);                     
-                        break;
-
-                    case 4:
-                        System.out.println("\nLaunching ZigZag...\n");
-                        ZigZagProgram.main(null);
-                        break;
-
-                    case 5:
-                        System.out.println("\nLaunching MasterMind...\n");
-                        Mastermind.main(null);
-                        break;
-
-                    case 6:
-                        System.out.println("\nLaunching Draw Shape...\n");
-                        MainProgram.main(null);
-                        break;
-
-                    case 7:
-                        System.out.println("\nLaunching Traffic Lights...\n");
-                        // TODO: Replace with real main class once confirmed
-                        // YourMainClassHere.main(null);
-                        System.out.println("Traffic Lights is not connected yet.");
-                        break;
-
-                    case 0:
-                        System.out.println("\nExiting program...");
-                        running = false;
-                        break;
-
-                    default:
-                        System.out.println("\nInvalid option. Please choose a valid number.");
-                }
-            } catch (Exception e) {
-                System.out.println("\nError running selected task: " + e.getMessage());
+            switch (choice) {
+                case 1: launchGame("Dance.DanceProgram"); break;
+                case 2: launchGame("SearchForLight.SearchForLight"); break;
+                case 3: launchGame("NoughtsAndCrosses.Noughts_and_Crosses"); break;
+                case 4: launchGame("ZigZag.ZigZagProgram"); break;
+                case 5: launchGame("MasterMind.Mastermind"); break;
+                case 6: launchGame("DrawShape.MainProgram"); break;
+                case 7: launchGame("Trafficlights.TrafficLightSystem"); break;
+                case 0:
+                    System.out.println("\nExiting program...");
+                    running = false;
+                    break;
+                default:
+                    System.out.println("\nInvalid option. Please choose a valid number.");
             }
 
             if (running) {
                 System.out.println("\nReturning to Main Menu...\n");
             }
         }
-
         scanner.close();
+    }
+
+    /**
+     * Launches a game class's main method using Reflection.
+     * This ensures MainMenu can compile even if individual games are broken.
+     */
+    private static void launchGame(String fullClassName) {
+        try {
+            System.out.println("\n[SYSTEM] Attempting to launch: " + fullClassName + "...");
+            
+            // Dynamically load the class
+            Class<?> gameClass = Class.forName(fullClassName);
+            
+            // Find the 'public static void main(String[] args)' method
+            Method mainMethod = gameClass.getMethod("main", String[].class);
+            
+            // Execute the method (passing null/empty args)
+            mainMethod.invoke(null, (Object) new String[0]);
+            
+        } catch (ClassNotFoundException e) {
+            System.err.println("\n[ERROR] Game file not found or not compiled: " + fullClassName);
+        } catch (NoSuchMethodException e) {
+            System.err.println("\n[ERROR] Could not find 'main' method in: " + fullClassName);
+        } catch (Exception e) {
+            System.err.println("\n[ERROR] Game crashed or failed to start: " + e.getCause());
+        }
+        // No matter what happens, we return here to continue the MainMenu loop.
     }
 
     private static void displayMenu() {
