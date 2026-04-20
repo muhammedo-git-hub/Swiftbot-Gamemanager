@@ -21,6 +21,7 @@ public class MainMenu {
                 case 5: launchGame("MasterMind.Mastermind"); break;
                 case 6: launchGame("DrawShape.MainProgram"); break;
                 case 7: launchGame("Trafficlights.TrafficLightSystem"); break;
+                case 8: launchGame("DetectLights.Main"); break; 
                 case 0:
                     System.out.println("\nExiting program...");
                     running = false;
@@ -85,6 +86,7 @@ public class MainMenu {
         System.out.println();
         System.out.println("    7. Traffic Lights");
         System.out.println();
+        System.out.println("    8. Detect Lights");
         System.out.println();
         System.out.println("    0. Exit Program");
         System.out.println("----------------------------------------------------------");
